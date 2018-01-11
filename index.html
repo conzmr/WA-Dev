@@ -4,81 +4,95 @@
 		<title>Meep Meepers</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
-	<body>
-		<!-- Header -->
+	<body ng-app="MeepMeepers" ng-cloak>
+		<div ng-controller="meepCtrl" >
+
 			<section id="header">
 				<header>
-					<svg viewBox="0 0 960 300">
-						<symbol id="s-text">
-							<text text-anchor="middle" x="50%" y="80%">Meepers</text>
-						</symbol>
-						<g class = "g-ants">
-							<use xlink:href="#s-text" class="text-copy"></use>
-							<use xlink:href="#s-text" class="text-copy"></use>
-							<use xlink:href="#s-text" class="text-copy"></use>
-							<use xlink:href="#s-text" class="text-copy"></use>
-							<use xlink:href="#s-text" class="text-copy"></use>
-						</g>
-					</svg>
-					<p>Constanza Madrigal A01226021</p>
-					<p>Ekaterina Chumakova A01224031</p>
-				</header>
+					<h1>WEB APPLICATION DEVELOPMENT</h1>
+					<p ng-repeat="user in users">{{user.name}} {{user.id}}header>
 				<footer>
-					<a href="#banner" class="button style2 scrolly-middle">Meep Meepers</a>
+					<a href="#banner" class="button style2 scrolly-middle">Project Description</a>
 				</footer>
 			</section>
 
-		<!-- Banner -->
 			<section id="banner">
 				<header>
-					<h2>Introduction</h2>
-					<p> We aim to build a tool to help a business interact with their clients in a way that promotes Business-Customer Realtionships.</p>
+					<h2>This is Overflow</h2>
 				</header>
-				<h2>Description</h2>
-				<p> Our goal is to develop Customer Relationship Management (CRM) tool using Angular and Firebase for a business to compile information on customers. We will create profiles for wach customer and provide data relevant to that customer. We will look for a possible client to sell the Web App later on. </p>
+				<p>A brand new site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>.<br />
+				It’s fully responsive, built on <strong>skel</strong>, and of course entirely free<br />
+				under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
 				<footer>
-					<a href="#first" class="button style2 scrolly">Team Info.</a>
+					<a href="#first" class="button style2 scrolly">Act on this message</a>
 				</footer>
 			</section>
 
-		<!-- Feature 1 -->
-			<article id="first" class="container box style1 right">
-				<a href="#" class="image fit"><img src="images/pic01.jpg" alt=""/></a>
+			<article class="container box style1 right" ng-repeat="user in users">
+				<a href="#" class="image fit"><img ng-src="images/{{user.id}}.jpg" alt="" /></a>
 				<div class="inner">
 					<header>
-						<h2>Lorem ipsum<br/>
-						dolor sit amet</h2>
-					</header>
-					<p>Tortor faucibus ullamcorper nec tempus purus sed penatibus. Lacinia pellentesque eleifend vitae est elit tristique velit tempus etiam.</p>
+						<h2>{{user.name}}					</header>
+					<p ng-repeat="q in user.questions">
+						<b>{{questions[$index]}}</b><br>
+						{{q}}
+					</p>
 				</div>
 			</article>
 
-		<!-- Feature 2 -->
-			<article class="container box style1 left">
-				<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Mollis posuere<br />
-						lectus lacus</h2>
-					</header>
-					<p>Rhoncus mattis egestas sed fusce sodales rutrum et etiam ullamcorper. Etiam egestas scelerisque ac duis magna lorem ipsum dolor.</p>
-				</div>
-			</article>
-
-			</article>
-
-		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.poptrox.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+			</script>
 
+			<script type="text/javascript">
+				 var app = angular.module('MeepMeepers', ['ngMaterial']);
+
+				 app.controller('meepCtrl', function($scope, $mdToast, $mdDialog, $location, $window) {
+
+					 var config = {
+						 apiKey: "AIzaSyDyKEcGaUvOUz5Qa1SU50B0fdngqBGj1pU",
+						 authDomain: "meep-meepers.firebaseapp.com",
+						 databaseURL: "https://meep-meepers.firebaseio.com",
+						 projectId: "meep-meepers",
+						 storageBucket: "meep-meepers.appspot.com",
+						 messagingSenderId: "856563136447"
+					 };
+					 firebase.initializeApp(config);
+
+					 var dbRef = firebase.database();
+					 var usersRef = dbRef.ref('users');
+					 var questionsRef = dbRef.ref('questions');
+					 $scope.users = [];
+					 $scope.questions = [];
+
+					 usersRef.on("child_added", function(snap) {
+						 $scope.$apply(function() {
+							 $scope.users.push(snap.val());
+						 });
+				 });
+
+				 questionsRef.on("child_added", function(snap) {
+					 $scope.$apply(function() {
+						 $scope.questions.push(snap.val());
+					 });
+				 });
+
+		 });
+
+			</script>
 	</body>
 </html>
