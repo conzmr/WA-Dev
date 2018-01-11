@@ -81,7 +81,7 @@
 		}
 
 		.container {
-			width: 960px;
+			width: 90%;
 		}
 
 	}
@@ -1765,8 +1765,8 @@
 		}
 
 		.box.style1 {
-			background: #fff;
-			padding: 3em;
+			background: rgba(255,255,255,0.6);
+			padding: 15px;
 		}
 
 			.box.style1 .image {
@@ -1800,7 +1800,7 @@
 
 			.box.style1.right .inner {
 				margin-left: 50%;
-				padding-left: 3em;
+				padding-left: 15px;
 			}
 
 			.box.style1.left .image {
@@ -1813,73 +1813,12 @@
 
 			.box.style1.left .inner {
 				margin-right: 50%;
-				padding-right: 3em;
+				padding-left: 15px;
 			}
 
-		.box.style2 {
-			text-align: center;
+		.icon {
+			text-decoration: none;
 		}
-
-			.box.style2 header {
-				display: inline-block;
-				background: #fff;
-				padding: 2em 3em 2em 3em;
-				margin: 0;
-			}
-
-				.box.style2 header p {
-					padding: 0;
-				}
-
-			.box.style2 .inner {
-				position: relative;
-				padding: 40px 0 0px 0;
-			}
-
-				.box.style2 .inner:after {
-					content: '';
-					display: block;
-					position: absolute;
-					top: 0;
-					left: 50%;
-					height: 100%;
-					border-left: solid 1px #fff;
-				}
-
-				.box.style2 .inner .row {
-					position: relative;
-				}
-
-					.box.style2 .inner .row:before {
-						content: '';
-						display: block;
-						position: absolute;
-						top: 50%;
-						left: 20px;
-						width: calc(100% - 40px);
-						border-bottom: solid 1px #fff;
-					}
-
-				.box.style2 .inner .image {
-					position: relative;
-					z-index: 1;
-					padding: 20px;
-				}
-
-		.box.style3 {
-			background: #fff;
-			padding: 3em;
-		}
-
-			.box.style3 header {
-				text-align: center;
-			}
-
-/* Icons */
-
-	.icon {
-		text-decoration: none;
-	}
 
 		.icon:before {
 			display: inline-block;
@@ -1905,7 +1844,7 @@
 		text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
 		text-align: center;
 		margin: 0;
-		padding: 14em 0 14em 0;
+		padding: 3em 0 14em 0 !important;
 		cursor: default;
 	}
 
@@ -2124,7 +2063,7 @@
 				}
 
 				.box.style1 {
-					padding: 2.5em 2em 2.5em 2em;
+					padding: 15px;
 				}
 
 					.box.style1.right .inner {
@@ -2356,4 +2295,7 @@ svg {
 
 @keyframes stroke-offset{
 	100% {stroke-dashoffset: -35%;}
+
+.info-person p{
+	font-size:12px;
 }

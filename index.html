@@ -5,7 +5,6 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<body ng-app="MeepMeepers" ng-cloak>
@@ -13,8 +12,20 @@
 
 			<section id="header">
 				<header>
-					<h1>WEB APPLICATION DEVELOPMENT</h1>
-					<p ng-repeat="user in users">{{user.name}} {{user.id}}header>
+					<svg viewBox="0 0 960 300">
+						<symbol id="s-text">
+							<text text-anchor="middle" x="50%" y="80%">Meepers</text>
+						</symbol>
+						<g class = "g-ants">
+							<use xlink:href="#s-text" class="text-copy"></use>
+							<use xlink:href="#s-text" class="text-copy"></use>
+							<use xlink:href="#s-text" class="text-copy"></use>
+							<use xlink:href="#s-text" class="text-copy"></use>
+							<use xlink:href="#s-text" class="text-copy"></use>
+						</g>
+					</svg>
+					</header>
+					<p ng-repeat="user in users">{{user.name}} {{user.id}}</p>
 				<footer>
 					<a href="#banner" class="button style2 scrolly-middle">Project Description</a>
 				</footer>
@@ -22,27 +33,31 @@
 
 			<section id="banner">
 				<header>
-					<h2>This is Overflow</h2>
+					<h2>Introduction</h2>
+					<p> We aim to build a tool to help a business interact with their clients in a way that promotes Business-Customer Realtionships.</p>
 				</header>
-				<p>A brand new site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>.<br />
-				It’s fully responsive, built on <strong>skel</strong>, and of course entirely free<br />
-				under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
+				<h2>Description</h2>
+				<p> Our goal is to develop Customer Relationship Management (CRM) tool using Angular and Firebase for a business to compile information on customers. We will create profiles for wach customer and provide data relevant to that customer. We will look for a possible client to sell the Web App later on. </p>
 				<footer>
-					<a href="#first" class="button style2 scrolly">Act on this message</a>
+					<a href="#first" class="button style2 scrolly">Team Info.</a>
 				</footer>
 			</section>
 
 			<article class="container box style1 right" ng-repeat="user in users">
 				<a href="#" class="image fit"><img ng-src="images/{{user.id}}.jpg" alt="" /></a>
-				<div class="inner">
+				<div class="inner info-person">
 					<header>
-						<h2>{{user.name}}					</header>
+						<h2>{{user.name}}</header>
 					<p ng-repeat="q in user.questions">
 						<b>{{questions[$index]}}</b><br>
 						{{q}}
 					</p>
 				</div>
 			</article>
+
+			<article class="container box style1 left">
+			</article>
+
 
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
